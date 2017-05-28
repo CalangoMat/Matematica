@@ -1,0 +1,322 @@
+% ***********************************************************
+% ******************* MATHSSS HEADER ************************
+% ***********************************************************
+
+\documentclass[11pt, twocolumn]{article}
+\usepackage{amsmath} 																														% AMS Math Package
+\usepackage{amsthm} 																														% Theorem Formatting
+\usepackage{amssymb}    																												% Math symbols such as \mathbb
+\usepackage{graphicx} 																													% Allows for eps images
+\usepackage[dvips,letterpaper,margin=.7in,bottom=0.7in]{geometry}
+\usepackage{tensor}                                                             % Sets margins and page size
+\usepackage{amsmath}
+\usepackage{enumerate}
+\usepackage{pgfplots}
+\usepackage{tikz}
+\usepackage{xcolor,cancel}
+\usepackage{MnSymbol}
+\pgfplotsset{compat=1.13}
+
+\setlength{\columnsep}{0.5in}
+\setlength{\columnseprule}{0.6pt}
+\newcommand\Ccancel[2][black]{\renewcommand\CancelColor{\color{#1}}\cancel{#2}}
+
+\renewcommand{\labelenumi}{(\alph{enumi})} 																			% Use letters for enumerate
+% \DeclareMathOperator{\Sample}{Sample}
+\let\vaccent=\v 																																% rename builtin command \v{} to \vaccent{}
+\renewcommand{\v}[1]{\ensuremath{\mathbf{#1}}} 																	% for vectors
+\newcommand{\gv}[1]{\ensuremath{\mbox{\boldmath$ #1 $}}}
+
+% for vectors of Greek letters
+\newcommand{\uv}[1]{\ensuremath{\mathbf{\hat{#1}}}} 														% for unit vector
+\newcommand{\abs}[1]{\left| #1 \right|} 																				% for absolute value
+\newcommand{\avg}[1]{\left< #1 \right>} 																				% for average
+\let\underdot=\d 																																% rename builtin command \d{} to \underdot{}
+\renewcommand{\d}[2]{\frac{d #1}{d #2}} 																				% for derivatives
+\newcommand{\dd}[2]{\frac{d^2 #1}{d #2^2}} 																			% for double derivatives
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}} 														% for partial derivatives
+\newcommand{\pdd}[2]{\frac{\partial^2 #1}{\partial #2^2}}												% for double partial derivatives
+\newcommand{\pdc}[3]{\left( \frac{\partial #1}{\partial #2} \right)_{#3}} 			% for thermodynamic partial derivatives
+\newcommand{\ket}[1]{\left| #1 \right>} 																				% for Dirac bras
+\newcommand{\bra}[1]{\left< #1 \right|} 																				% for Dirac kets
+\newcommand{\braket}[2]{\left< #1 \vphantom{#2} \right| \left. #2 \vphantom{#1} \right>} % for Dirac brackets
+\newcommand{\matrixel}[3]{\left< #1 \vphantom{#2#3} \right| #2 \left| #3 \vphantom{#1#2} \right>} % for Dirac matrix elements
+\newcommand{\grad}[1]{\gv{\nabla} #1} 																					% for gradient
+\let\divsymb=\div 																															% rename builtin command \div to \divsymb
+\renewcommand{\div}[1]{\gv{\nabla} \cdot \v{#1}} 																% for divergence
+\newcommand{\curl}[1]{\gv{\nabla} \times \v{#1}} 																% for curl
+\let\baraccent=\= 																															% rename builtin command \= to \baraccent
+\renewcommand{\=}[1]{\stackrel{#1}{=}} 																					% for putting numbers above =
+\providecommand{\wave}[1]{\v{\tilde{#1}}}
+\providecommand{\fr}{\frac}
+\providecommand{\RR}{\mathbb{R}}
+\providecommand{\NN}{\mathbb{N}}
+\providecommand{\seq}{\subseteq}
+\providecommand{\e}{\epsilon}
+
+\newtheorem{prop}{Proposi\c{c}\~ao}
+\newtheorem{thm}{Theorema}[section]
+\newtheorem{axiom}{Axioma}[section]
+\newtheorem{p}{Quest\~ao}%[section]
+\newtheorem*{lem}{Lema}
+
+\theoremstyle{definition}
+\newtheorem{quest}{Quest\~ao}
+ \newenvironment{resp}{\small
+	\begin{trivlist} \item \textbf{Solu\c{c}\~ao}.}{%
+   \hspace*{\fill} $\blacksquare$\end{trivlist}}%
+
+
+\begin{document}
+%
+% {\noindent\Huge\bf  \\[0.5\baselineskip] {\fontfamily{cmr}\selectfont  Prova de Matem\'atica - EPCAR 1979}         }\\[2\baselineskip] % Title
+% { {\bf \fontfamily{cmr}\selectfont PRIMEIRO ANO}\\ {\textit{\fontfamily{cmr}\selectfont     06 de dezembro de 1979}}}~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~    {\large \textsc{Calango}}
+% \\[1.4\baselineskip]
+
+\begin{quest}
+ 	A fra\c{c}\~ao irredut\'ivel equivalente \'a express\~ao \(\displaystyle \frac{\frac{1}{2}-\frac{2}{3}}{1+\frac{1}{2}(-\frac{2}{3})}\) \'e : \\ \\
+	\(\displaystyle a)\ \frac{1}{2} \hfill b)\ -\frac{1}{2} \hfill c)\ \frac{1}{4} \hfill d)\ -\frac{1}{4} \hfill e)\ \frac{2}{3} \)
+\end{quest}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hline
+\vfill
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{quest}
+	Se \(\displaystyle A = (-2\frac{1}{2})^3 - (-\frac{3}{2})^2\) e \\ \(\displaystyle B = 2\frac{1}{4}+(\frac{2}{5})^{-3}\), ent\~ao : \\ \\
+	\(\displaystyle a)\ A + B = 0 \hfill b)\ B - A = 0 \hfill c)\ A - B = 0 \hfill \\ d)\ \frac{B}{A} = 2 \hfill e)\ \frac{B}{A} = -2 \)
+\end{quest}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hline
+\vfill
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{quest}
+	Se uma caixa tiver capacidade para $20\ m^3$ de \'agua, ent\~ao a capacidade dessa caixa em litros, ser\'a : \\ \\
+	\(\displaystyle a)\ 2*10^{-1} \hfill b)\ 2*10^{1} \hfill c)\ 2*10^{2} \hfill \\ d)\ 2*10^{3} \hfill e)\ 2*10^{4} \)
+\end{quest}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hline
+\vfill
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{quest}
+	Se o conjunto $A$ tiver $16$ elementos, o conjunto $B$ tiver 18 elementos e houver 4 elementos pertencentes a $A$ e $B$, ent\~ao o n\'umero de elementos de $A \cup B$ ser\'a : \\ \\
+	\(\displaystyle a)\ 38 \hfill b)\ 34 \hfill c)\ 26 \hfill d)\ 28 \hfill e)\ 30 \)
+\end{quest}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hline
+\vfill
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{quest}
+	Multiplicando os dois n\'umeros pares consecutivos cuja soma \'e igual a $98$, obteremos : \\ \\
+	\(\displaystyle a)\ 2208 \hfill b)\ 2320 \hfill c)\ 2352 \hfill d)\ 2400 \hfill e)\ 2392 \)
+\end{quest}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hline
+\vfill
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{quest}
+	D\^e a fra\c{c}\~ao irredut\'ivel equivalente a $87,5\%$. \\ \\
+	\(\displaystyle a)\ \frac{3}{8} \hfill b)\ \frac{35}{4} \hfill c)\ \frac{1771}{20} \hfill d)\ \frac{7}{8} \hfill e)\ \frac{12,5}{7} \)
+\end{quest}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hline
+\vfill
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{quest}
+	Calculando $36\%$ de $R\$\ 1200,00$, encontraremos : \\ \\
+	\(\displaystyle a)\ R\$\ 423,00 \hfill b)\ R\$\ 243,00 \hfill c)\ R\$\ 234,00 \hfill \\ d)\ R\$\ 324,00 \hfill e)\ R\$\ 432,00 \)
+\end{quest}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{quest}
+	Se $n\%$ de $R\$\ 48,00 = R\$\ 33,60$, ent\~ao $n = \dots$ \\ \\
+	\(\displaystyle a)\ 50 \hfill b)\ 60 \hfill c)\ 70 \hfill d)\ 80 \hfill e)\ 90 \)
+\end{quest}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hline
+\vfill
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{quest}
+	A express\~ao \(\displaystyle (a+b)(a+b) + (a-b)(a+b)\) \'e equivalente a : \\ \\
+	\(\displaystyle a)\ 2a(a+b) \hfill b)\ 2a(a-b) \hfill c)\ 2b(a+b) \hfill \\ \\ d)\ 2b(a-b) \hfill e)\ 2a(a+b)^2 \)
+\end{quest}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hline
+\vfill
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{quest}
+	A express\~ao \(7a^3b^2-8a^2b^3+(2a^2b-3ab^2)(a-b)^2\) \'e equivalente a : \\ \\
+	\(\displaystyle a)\ ab^2(2a^3+3b^3) \hfill b)\ -ab(2a^3+3b^3) \\ \\ \hfill c)\ -ab(2a^3-3b^3) \hfill  d)\ ab(2a^3+3b^3) \hfill \\ \\ e)\ ab(2a^3-3b^3) \)
+\end{quest}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hline
+\vfill
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{quest}
+	A express\~ao \\ \(\displaystyle \frac{2x^2+4xy}{x^2-y^2} + \frac{x-y}{x+y} - \frac{x+y}{x-y}\) \'e equivalente a : \\ \\
+	\(\displaystyle a)\ \frac{-2x^2}{x^2-y^2} \hfill b)\ \frac{2x^2}{x^2-y^2} \hfill \\ \\ c)\ \frac{-x^2}{x^2-y^2} \hfill  d)\ \frac{x^2}{x^2-y^2} \hfill \\ \\ e)\ \frac{2x(x+2y)}{x^2-y^2} \)
+\end{quest}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hline
+\vfill
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{quest}
+	Se $A = \sqrt{3}$, $B = \sqrt[4]{5}$, $C = \sqrt[3]{4}$ ent\~ao ser\'a verdadeiro afirmar : \\ \\
+	\(\displaystyle a)\ C\ \less\ B\ \less\ A \hfill b)\ C\ \less\ A\ \less\ B \hfill \\ c)\ B\ \less\ A\ \less\ C \hfill d)\ A\ \less\ B\ \less\ C \hfill \\ e)\ A\ \gtr\ C\ \gtr\ B \)
+\end{quest}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hline
+\vfill
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{quest}
+	Simplificando \(\displaystyle \bigg(\ \sqrt[8]{a^4-a^2+\frac{1}{2}}\ \bigg)^4\), obteremos : \\ \\
+	\(\displaystyle a)\ a - 0,5 \hfill b)\ a^2 - 0,5 \hfill c)\ a^2 + 0,5 \hfill \\ \\ d)\ a + 0,5 \hfill e)\ a^2 \)
+\end{quest}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hline
+\vfill
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{quest}
+	O n\'umero $4,32$ corresponde a $24\%$ de: \\ \\
+	\(\displaystyle a)\ 180 \hfill b)\ 120 \hfill c)\ 15 \hfill d)\ 18 \hfill e)\ 16\)
+\end{quest}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{quest}
+	Se \(\displaystyle \frac{\sqrt{5} + \sqrt{2}}{\sqrt{5}} = k(5+\sqrt{10}) \) ent\~ao \\ $k =$ \dots \\ \\
+	\(\displaystyle a)\ \frac{\sqrt{5}}{5} \hfill b)\ 5 \hfill c)\ \frac{1}{5} \hfill d)\ 5\sqrt{2} \hfill e)\ \frac{\sqrt{2}}{2}\)
+\end{quest}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hline
+\vfill
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{quest}
+	Desdobrando o n\'umero 288 em duas partes tais que \(\displaystyle \frac{3}{4}\) da primeira d\^e resultado igual a \(\displaystyle \frac{3}{2}\) da segunda, podemos concluir que : \\ \\
+	$a)$ O dobro da menor parte \'e $184$. \\ $b)$ A diferen\c{c}a entre as duas partes \'e $96$. \\ $c)$ A menor das partes \'e $48$. \\ $d)$\ A maior das partes \'e $190$. \\ $e)$ A metade da maior \'e $94$.
+\end{quest}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hline
+\vfill
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{quest}
+	Simplificando \(\displaystyle (a+b)^3-(a-b)^3\) tem-se : \\ \\
+	\(\displaystyle a)\ 2a(2a^2 + 3b^2) \hfill b)\ 2b(3a^2 + b^2) \\ \\ \hfill c)\ 2a(3a^2 + 2b^3) \hfill  d)\ 2b(2a^2 + 3b^3) \hfill \\ \\ e)\ 2a^3b^3 \)
+\end{quest}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hline
+\vfill
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{quest}
+	Uma sacola cont\'em bolas brancas e bolas vermelhas. se o n\'umero total de bolar for $65$ e se o n\'umero de bolas brancas for igual a \(\displaystyle \frac{5}{8}\) do n\'umero de bolas vermelhas, ent\~ao o n\'umero de bolas brancas ser\'a : \\ \\
+	\(\displaystyle a)\ 15 \hfill b)\ 20 \hfill c)\ 25 \hfill d)\ 30 \hfill e)\ 40 \)
+\end{quest}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hline
+\vfill
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{quest}
+	Os pontos $(5,2)$ e $(4, -3)$ pertencer\~ao ao gr\'afico da fun\c{c}\~ao $f(x) = mx + h$ desde que $h =$ \dots \\ \\
+	\(\displaystyle a)\ -23 \hfill b)\ 25 \hfill c)\ -25 \hfill d)\ 23 \hfill e)\ 5 \)
+\end{quest}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hline
+\vfill
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{quest}
+	Sejam $f$ e $g$  fun\c{c}\~ao tais que \(\displaystyle f(x) = 2x-3\) e \(\displaystyle g(x) = \frac{x}{2} + \frac{3}{2}\) \\ \\
+	Calcule $f(11)$ e a seguir calcule $g(f(11))$. O resultado obtido foi : \\ \\
+	\(\displaystyle a)\ 19 \hfill b)\ 11 \hfill c)\ 18 \hfill d)\ \frac{23}{2} \hfill e)\ \frac{21}{2} \)
+\end{quest}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{quest}
+	O ponto $P$ do terceiro quadrante possui coordenadas $(x,y)$ que verificam o sistema\\
+	\begin{cases}
+		x^2 + y^2 = 18 \\
+		xy = 9
+	\end{cases}
+	Da\'i se conclui que $x + 2y =$ \dots \\ \\
+	\(\displaystyle a)\ 9 \hfill b)\ 3 \hfill c)\ -3 \hfill d)\ -9 \hfill e)\ 0 \)
+\end{quest}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hline
+\vfill
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{quest}
+	Se um varejista revender certa mercadoria com lucro de $50\%$ sobre o pre\c{c}o de venda, ent\~ao seu lucro sobre o pre\c{c}o de custo ser\'a de : \\
+	\(\displaystyle a)\ 50\% \hfill b)\ 100\% \hfill c)\ 25\% \hfill d)\ 200\% \hfill e)\ 150\% \)
+\end{quest}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hline
+\vfill
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{quest}
+	Seja $P(x) = 2x^3+3x^2-8x+3$. Calcule os valores num\'ericos $P(1)$ e $P(-1)$ de modo a completar a igualdade $P(1) + P(-1) =$\dots \\ \\
+	\(\displaystyle a)\ 0 \hfill b)\ -10 \hfill c)\ 13 \hfill d)\ 12 \hfill e)\ 20 \)
+\end{quest}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hline
+\vfill
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{quest}
+	Se a soma de $3$ n\'umeros inteiros e consecutivos for $120$ ent\~ao :\\\\
+	$a)$ O menor deles ser\'a $49$. \\ $b)$ O maior deles ser\'a $51$. \\ $c)$ A soma dos dois menores ser\'a $49$. \\ $d)$\ A soma dos dois maiores ser\'a $61$. \\ $e)$ $41$ \'e um dos n\'umeros.
+\end{quest}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hline
+\vfill
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{quest}
+
+\end{quest}
+\end{document}
