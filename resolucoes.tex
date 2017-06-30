@@ -1,0 +1,78 @@
+\documentclass[12pt, a4paper, twoside, brazil]{article}
+\usepackage[usenames,dvipsnames,table]{xcolor} % Permite usar cores
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage[portuguese]{babel}
+\usepackage[utf8]{inputenc}     							 % Codificacao do documento (conversão automática dos acentos)
+\usepackage[T1]{fontenc}        				 			 % Selecao de codigos de fonte.
+\usepackage{fancyvrb} 												 % Desenha conteúdos verbatim com caixas ao redor
+\usepackage{hyperref}
+\usepackage{parskip} 													 % Remove identação de parágrafos e adiciona espaço entre eles
+\usepackage{color}
+
+\definecolor{blue}{RGB}{41,5,195}
+\hypersetup{
+    colorlinks = true,    % false: boxed links; true: colored links
+    linkcolor  = blue,    % color of internal links
+    citecolor  = red,     % color of links to bibliography
+    filecolor  = magenta, % color of file links
+    urlcolor   = blue
+}
+
+%% Questão ------------------------------------------------------------
+\newcounter{questaono}[section]
+\newenvironment{questao}[1][]{\refstepcounter{questaono}\par\medskip
+   \textbf{\thequestaono.#1} \rmfamily}{\medskip}
+
+%% Teorema ------------------------------------------------------------
+\newcounter{teoremano}[section]
+\newenvironment{teorema}[1][]{\refstepcounter{teoremano}\par\medskip
+	 \textbf{Teorema~\theteoremano. #1} \rmfamily}{\medskip}
+
+%% Lema ---------------------------------------------------------------
+\newcounter{lemano}[section]
+\newenvironment{lema}[1][]{\refstepcounter{lemano}\par\medskip
+	 \textbf{Lema~\thelemano. #1} \rmfamily}{\medskip}
+
+%% Corolário ----------------------------------------------------------
+\newcounter{corolariono}[section]
+\newenvironment{corolario}[1][]{\refstepcounter{corolariono}\par\medskip
+	 \textbf{Corolário~\thecorolariono. #1} \rmfamily}{\medskip}
+
+\theoremstyle{remark}
+\newtheorem*{solucao}{Solução}
+\renewcommand{\qedsymbol}{\filledbox} % Usado em provas
+
+\def\dps{\displaystyle}
+
+\def\cabecalho{
+	\noindent
+	%\begin{minipage}[b]{0.3\textwidth}
+	%\centering
+	%{\bf{\textsc{MATEMÁTICA}}} \\
+	%\bf{--------------------}\\
+	%{\small\bf{\textsc{BACHARELADO}}}
+	%\end{minipage}
+	\begin{minipage}[b]{\textwidth}
+		\begin{center}
+			{\Large\bf Provas de Cálculo 1 - UFAL}\\
+			{\bf{Feito por \it{Vinicius G. Souza}}}\\
+			{{Problemas disponíveis no} \it\href{http://www.im.ufal.br/top-downloads/category/1-banco-de-questoes-de-calculo}{site do IM-UFAL}}
+		\end{center}
+	\end{minipage}
+	\vspace{.2in}
+}
+
+\begin{document}
+
+\cabecalho
+
+\begin{questao}
+	Determine as assíntotas verticais e horizontais, caso existam, ao gráfico da função $\dps f(x) = \frac{x^3-1}{5x^3-20x^2+15x}$.
+\end{questao}
+\begin{solucao}
+Procurando primeiro por ass. horizontais, temos
+$$\lim_{x\to+\infty}{\frac{x^3-1}{5x^3-20x^2+15x}} = \lim_{x\to\infty}{\frac{x^3-1}{5x^3-20x^2+15x}}$$
+\end{solucao}
+
+\end{document}
